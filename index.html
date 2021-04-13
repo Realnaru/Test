@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sorting and saving an array</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+
+  <h1>Test webpage</h1>
+  <p>Sort an array, save results to a database, fetch results from the database</p>
+
+    <div class="form-div">
+
+        <label for="name">Enter an array</label><br>
+        <input id="array-input" class="wide-field" type="text" name=""><br>
+
+        <label for="email">Enter an identifier</label><br>
+        <input id="identifier-input" class="wide-field" type="text" name="" value=""><br>
+
+        <div class="button-div">
+          <button id="sort-button" class="wide-button" type="reset" name="">Sort the array</button>
+        </div>
+
+    </div>
+    <div class="form-div">
+      <form id="send-form" class="" action="/" method="post">
+        <input id="identifier-output" class="wide-field" type="text" name="identifierInput">
+        <label for="array-output">Sorted array</label><br>
+        <input id="array-output" class="wide-field" type="text" name="arrayOutput">
+
+        <div class="button-div">
+          <button id="save-button" class="wide-button" type="submit" name="button">Save results to BD</button>
+        </div>
+
+      </form>
+    </div>
+
+
+
+
+  <script type="text/javascript" src="index.js">
+  </script>
+  </body>
+</html>
