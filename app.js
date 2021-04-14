@@ -2,10 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const pg = require("pg");
 
-
 const app = express();
-
-
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -32,12 +29,12 @@ app.post("/fetch", (req, res) => {
   const pool = new pg.Pool({
       user: 'postgres',
       host: '127.0.0.1',
-      database: 'postgres',
+      database: 'sortings',
       password: 'qazwsx',
       port: '5432'}
   );
 
-  pool.query("select arrayValue from values where identifier = '" + identifier +"' order by arrayValue;",
+  pool.query("select value from values where identifier = '" + identifier +"' order by value;",
       (err, results) => {
       if (err) {
         console.log(err);
@@ -47,8 +44,38 @@ app.post("/fetch", (req, res) => {
   });
 
   res.write("<h1>Here is your sorting</h1>");
+  res.send(results.rows);
 })
 
+function createDataBase() {
+  const pool = new pg.Pool({
+      user: 'postgres',
+      host: '127.0.0.1',
+      database: 'postgres',
+      password: 'qazwsx',
+      port: '5432'}
+  );
+  pool.query("CREATE DATABASE sortings;",
+(err, res) => {
+  console.log(err, res);
+  pool.end();
+})
+}
+
+function createTable() {
+  const pool = new pg.Pool({
+      user: 'postgres',
+      host: '127.0.0.1',
+      database: 'sortings',
+      password: 'qazwsx',
+      port: '5432'}
+  );
+  pool.query("CREATE TABLE values(Id serial primary key, value integer, identifier character varying(255));",
+(err, res) => {
+  console.log(err, res);
+  pool.end();
+})
+}
 
 function inserData(value1, value2) {
   const pool = new pg.Pool({
