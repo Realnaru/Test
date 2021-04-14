@@ -1,6 +1,6 @@
 # Test
 Frontend and backend parts of the array sorting web page.
-Database.sql contents queries to create postgreSQL database and table
+ Database.sql contains queries to create postgreSQL database and table
 Allows:
 1. Enter an array and sortings identifier.
 2. Sort an array with bubble sorting algorithm.
