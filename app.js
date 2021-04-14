@@ -9,7 +9,7 @@ const app = express();
 
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static("public"));//use "public" folder to get CSS and JS 
 
 //send file index.html as response to a get request to route "/"
 app.get("/", (req, res) => {
