@@ -1,5 +1,5 @@
 # Test
-Frontend and backend parts of the array sorting web page.
+Frontend and backend parts of the array sorting project.
 (Database.sql contains queries to create postgreSQL database and table)
 
 1. Enter an array and sortings identifier.
