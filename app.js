@@ -31,7 +31,8 @@ app.post(process.env.port || "/", (req, res) => {
 });
 
 app.post("/fetch", (req, res) => {
-
+  
+  let result = [];
   let identifier = req.body.identifierInput;
   const pool = new pg.Pool({
       user: 'postgres',
@@ -47,11 +48,12 @@ app.post("/fetch", (req, res) => {
         console.log(err);
       }
       console.log(results);
+      result = results.rows;
       pool.end();
   });
 
   res.write("<h1>Here is your sorting</h1>");
-  res.send(results.rows);
+  res.send(result);
 })
 
 function createDataBase() {
