@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));//use folder "public" to store .css and .js files
 
-//if Data Base and table if is not created yet then create
+//if Data Base and table if are not created yet then create
 if (dataBaseCreated === false && tableCreated === false) {
   createDataBase();
   createTable();
