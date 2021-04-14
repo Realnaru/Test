@@ -64,7 +64,7 @@ app.post("/fetch", (req, res) => {
   });
 
   res.write("<h1>Here is your sorting</h1>");
-  res.send(result);//show selectes values
+  res.send(result);//show selected values
 })
 
 //create new Data Base
