@@ -110,7 +110,7 @@ function inserData(value1, value2) {
       password: 'qazwsx',
       port: '5432'}
   );
-  pool.query("insert into values (arrayValue, identifier) values (" + value1 + "," + "'" + value2 + "');",
+  pool.query("insert into values (value, identifier) values (" + value1 + "," + "'" + value2 + "');",
 (err, res) => {
   console.log(err, res);
   pool.end();
