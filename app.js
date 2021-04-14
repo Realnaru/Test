@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 //handling POST request from index.html
 app.post(process.env.port || "/", (req, res) => {
   let sortIdent = req.body.identifierInput;//get identifier 
-  let sortedArray = req.body.arrayOutput.split(",");//sorted array as string, return an array and store the array 
+  let sortedArray = req.body.arrayOutput.split(",");//get sorted array as string, return an array and store the array 
   console.log(sortIdent, sortedArray);//log variables to ensure that all works well
 
   //insert pares of elemnts of the array and identifier into data base table 
