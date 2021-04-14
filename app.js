@@ -1,5 +1,5 @@
 
-const express = require("express");
+const express = require("express");//require express, body parser, pg
 const bodyParser = require("body-parser");
 const pg = require("pg");
 
