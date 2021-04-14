@@ -1,11 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const pg = require("pg");
+let isDataBaseCreated = false;
+let isTableCreated = false;
 
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+
+if (dataBaseCreated === false && tableCreated === false) {
+  createDataBase();
+  createTable();
+}
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -59,7 +66,8 @@ function createDataBase() {
 (err, res) => {
   console.log(err, res);
   pool.end();
-})
+});
+  isDataBaseCreated = true;
 }
 
 function createTable() {
@@ -75,6 +83,7 @@ function createTable() {
   console.log(err, res);
   pool.end();
 })
+  isTableCreated = true;
 }
 
 function inserData(value1, value2) {
