@@ -55,7 +55,8 @@ app.post("/fetch", (req, res) => {
       res.send(fetchedArray);//send sorted array(here i'm stucked now, because
                             //i don't know for now how to send back an HTML webpage
                             //with array values that i get from the database
-                            //i think i need to use res.render()
+                            //i think i need to use res.render())
+                            //so, for now it only sends the array
       pool.end();
   });
 
