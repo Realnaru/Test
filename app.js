@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 //answers POST request from first form
-app.post(process.env.port || "/", (req, res) => {
+app.post("/", (req, res) => {
   //get values from the page with body-parse
   let sortIdent = req.body.identifierInput;
   let sortedArray = req.body.arrayInput.split(",");
