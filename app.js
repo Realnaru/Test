@@ -4,25 +4,25 @@ const bodyParser = require("body-parser");
 const pg = require("pg");
 
 
-const app = express();
+const app = express();//create application
 
 
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));//middleware for parsing bodies from URL.
 app.use(express.static("public"));//use "public" folder to get CSS and JS 
 
-//send file index.html as response to a get request to route "/"
+//send file index.html as response to a get request to the route "/"
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
 //answers POST request from first form
 app.post("/", (req, res) => {
-  //get values from the page with body-parse
+  //get values from the page with body-parser
   let sortIdent = req.body.identifierInput;
   let sortedArray = req.body.arrayInput.split(",");
 
-  //insert values from the sorted array to data base
+  //sort an array and insert values from the sorted array to a data base
   for (let i = 0; i < sortedArray.length; i++) {
     inserData(+sortedArray[i], sortIdent);
   }
@@ -34,8 +34,10 @@ app.post("/", (req, res) => {
 //answers POST request from second form
 app.post("/fetch", (req, res) => {
 
-  let fetchedArray = []
-  let identifier = req.body.identifierInput;//get identifier value from page
+  let fetchedArray = []//empty array to store values of result from sql query
+  let identifier = req.body.identifierInput;//get identifier value from the page
+  
+  //new pg pool to the created database
   const pool = new pg.Pool({
       user: 'postgres',
       host: '127.0.0.1',
@@ -56,7 +58,7 @@ app.post("/fetch", (req, res) => {
                             //i don't know for now how to send back an HTML webpage
                             //with array values that i get from the database
                             //i think i need to use res.render())
-                            //so, for now it only sends the array
+                            //so, for now it only sends the array values
       pool.end();
   });
 
@@ -64,6 +66,8 @@ app.post("/fetch", (req, res) => {
 
 //insert data to a data base using SQL query
 function inserData(value1, value2) {
+  
+  //new pg pool to the data base
   const pool = new pg.Pool({
       user: 'postgres',
       host: '127.0.0.1',
