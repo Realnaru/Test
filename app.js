@@ -54,7 +54,7 @@ app.post("/fetch", (req, res) => {
       }
       console.log(results);
       fetchedArray = getValues(results.rows);//get values from results.rows and store in in array
-      res.send(fetchedArray);//send sorted array values
+      res.send(fetchedArray);//send sorted array values as response
                             //(here i'm stuck for now, because
                             //i don't know yet how to send back an HTML webpage
                             //with the array values that i get from the database
