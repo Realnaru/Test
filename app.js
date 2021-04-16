@@ -54,11 +54,14 @@ app.post("/fetch", (req, res) => {
       }
       console.log(results);
       fetchedArray = getValues(results.rows);//get values from results.rows and store in in array
-      res.send(fetchedArray);//send sorted array(here i'm stuck now, because
-                            //i don't know for now how to send back an HTML webpage
-                            //with array values that i get from the database
+      res.send(fetchedArray);//send sorted array values
+                            //(here i'm stuck for now, because
+                            //i don't know yet how to send back an HTML webpage
+                            //with the array values that i get from the database
                             //i think i need to use res.render(), so i'm studying it)
-                            //so, for now it only sends the array values
+                            //the idea is that server will send back ejs template with results of the query
+                            //and form with route "/" and a submit button, 
+                            //so user will be able to see results and then go to the main page by clicking the button
       pool.end();
   });
 
