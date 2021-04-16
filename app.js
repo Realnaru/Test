@@ -22,7 +22,7 @@ app.post("/", (req, res) => {
   let sortIdent = req.body.identifierInput;
   let sortedArray = req.body.arrayInput.split(",");
 
-  //sort an array and insert values from the sorted array to a data base
+  //sort an array and insert values from the sorted array and identifier of sorting to a data base
   for (let i = 0; i < sortedArray.length; i++) {
     inserData(+sortedArray[i], sortIdent);
   }
