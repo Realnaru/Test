@@ -78,7 +78,7 @@ function inserData(value1, value2) {
       password: 'qazwsx',
       port: '5432'}
   );
-
+  //sql query to insert data into the data base
   pool.query("insert into values (value, identifier) values (" + value1 + "," + "'" + value2 + "');",
 (err, res) => {
   console.log(err, res);
