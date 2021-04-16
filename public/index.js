@@ -1,12 +1,11 @@
 
 document.querySelector("#sort-button").addEventListener("click", () => showSortedArray());
-//when click selected buttom function showSortedArray executes
+//when click selected button function showSortedArray() executes
 
-function showSortedArray() {//sort an array and show it in the same input
-  //get array values from first input
-  let unsortedArray = document.getElementById("array-input").value.trim().split(" ");
-  //get identifier value from second input
-  let identifier = document.getElementById("identifier-input").value;
+//sort an array and show it in the same input
+function showSortedArray() {
+  let unsortedArray = document.getElementById("array-input").value.trim().split(" ");//get array values from first input  
+  let identifier = document.getElementById("identifier-input").value;//get identifier value from second input
 
   if ( unsortedArray != "" & identifier != "") {//if values are not empty strings
     let arrayInput = document.querySelector("#array-input");//select first input
@@ -27,6 +26,6 @@ function bubbleSort(anyArray) {
       }
     }
   }
-  return anyArray;
+  return anyArray;//return sorted array
 
 }
