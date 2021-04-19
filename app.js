@@ -53,7 +53,7 @@ app.post("/fetch", (req, res) => {
       fetchedArray = getValues(results.rows);//get values from results.rows and store in in array
     
       //render ejs template with sorted array
-      //and button that allow to get initial webpage
+      //and button that allow to get to initial webpage
       res.render("fetch.ejs", { fetchedArray: fetchedArray });
     
       pool.end();
