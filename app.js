@@ -5,6 +5,8 @@ const pg = require("pg");
 
 const app = express();//create application
 
+app.set("view engine", "ejs");
+
 app.use(bodyParser.urlencoded({extended: true}));//middleware for parsing bodies from URL.
 app.use(express.static("public"));//use "public" folder to get CSS and JS 
 
