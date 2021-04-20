@@ -4,6 +4,6 @@ Frontend and backend parts of the array sorting project.
 
 1. Enter an array and sorting identifier.
 2. Sort an array with bubble sorting algorithm.
-3. Store sorted array in a postreSQL data base
+3. Store sorted array in a postgreSQL data base
 4. Get sorted arrays from the database.
 
