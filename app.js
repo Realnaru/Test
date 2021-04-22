@@ -43,7 +43,6 @@ app.post("/", (req, res) => {
 
   sortings.push(sorting); //push that object into array of objects
 
-
   res.redirect("/"); //redirect to initial app.get
 });
 
@@ -57,8 +56,6 @@ app.post("/save", (req, res) => {
                                                                            //into the database
     }
   }
-
-
 });
 
 //answer request to the /fetch route (get values of sorted array and sorting identifier from the database)
@@ -111,7 +108,6 @@ function bubbleSort(anyArray) {
     }
   }
   return anyArray;
-
 }
 
 //insert data into the databse
