@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sorting and saving an array</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <h1>Test webpage</h1>
+  <p>Sort an array, save results to a database, fetch results from the database</p>
+
+  <div class="form-div">
+    <form class="" action="/" method="post">
+      <label for="">Enter an array<br>(without commas, space as a delimiter)</label><br>
+      <input id="array-input" class="wide-field" type="text" name="arrayInput" required><br>
+      <label for="">Enter an identifier</label><br>
+      <input id="identifier-input" class="wide-field" type="text" name="identifierInput" required><br />
+      <div class="button-div">
+        <button id="sort-button" class="wide-button" type="submit">Sort the array</button>
+      </div>
+    </form>
+  </div>
+
+<div class="table-div">
+  <table>
+<%    if (sortings[0] != null) { %>
+    <tr>
+      <th>Identifier</th>
+      <th>Sorted Array</th>
+    </tr>
+<%  }  %>
+    <% for (let i = 0; i < sortings.length; i++) { %>
+      <tr>
+        <td><%= sortings[i]["identifier"] %></td>
+        <td><%= sortings[i]["sortedArray"] %></td>
+      </tr>
+    <% } %>
+  </table>
+</div>
+<div class="form-div">
+  <form class="dorm-div" action="/save" method="post">
+    <button type="submit" class="wide-button">Save sortings to the data base</button>
+  </form>
+</div>
+  <div class="form-div">
+
+    <form id="send-form" class="" action="/fetch" method="post">
+      <label for="identifier-span">Enter identifier</label><br>
+      <input id="identifier-input" class="wide-field" type="text" name="identifierFetch" required>
+      <div class="button-div">
+        <button id="save-button" class="wide-button" type="submit" name="button">Get the result of sorting</button>
+      </div>
+
+    </form>
+
+  </div>
+  <div class="table-div">
+    <table>
+  <%    if (fetchedResult["identifier"] != null) { %>
+      <tr>
+        <th>Identifier</th>
+        <th>Fetched Array</th>
+      </tr>
+        <tr>
+          <td><%= fetchedResult["identifier"] %></td>
+          <td><%= fetchedResult["fetchedArray"] %></td>
+        </tr>
+  <%  }  %>
+    </table>
+  </div>
+
+</body>
+
+</html>
